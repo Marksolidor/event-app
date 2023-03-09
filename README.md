@@ -1,8 +1,10 @@
 Integrantes 
 
-Marco Camargo
-María Paz Labbé
-Yarenla Stuardo
+- Marco Camargo
+
+- María Paz Labbé
+
+- Yarenla Stuardo
 
 # Getting Started with Create React App
 
