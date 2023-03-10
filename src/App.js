@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Home from "./views/Home";
 import Footer from "./components/Footer";
 import Register from "./components/Register";
+import { Login } from "./components/Login";
 
 export default function App() {
   return (
@@ -13,7 +14,7 @@ export default function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/Registrarse" element={<Register />} />
       </Routes>
       <Footer />
     </BrowserRouter>
