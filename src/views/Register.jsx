@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { edadValidator } from "./validators";
+import { edadValidator } from "../components/validators";
 
 const Registro = () => {
   const {
