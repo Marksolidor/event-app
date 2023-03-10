@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import UpComming_Events from "../components/Upcomming_Events";
+import UpCommingEvents from "../components/Upcomming_Events";
+import TopEvents from "../components/Top_Events";
 
 function Home() {
   const [events, setEvents] = useState([]);
@@ -23,7 +24,15 @@ function Home() {
       <h1 className="text-center my-4">Proximos Eventos</h1>
       <div className="row">
         {Array.isArray(events) && events.length > 0 ? (
-          <UpComming_Events events={events} />
+          <UpCommingEvents events={events} />
+        ) : (
+          <p className="text-center">No hay datos disponibles</p>
+        )}
+      </div>
+      <h1 className="text-center my-4">Eventos Populares</h1>
+      <div className="row">
+        {Array.isArray(events) && events.length > 0 ? (
+          <TopEvents events={events} />
         ) : (
           <p className="text-center">No hay datos disponibles</p>
         )}
