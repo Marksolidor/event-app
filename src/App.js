@@ -10,10 +10,10 @@ export default function App() {
   return (
     <BrowserRouter>
       <Navbar />
-      
+
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Registrarse" element={<Register />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
       <Footer />
     </BrowserRouter>

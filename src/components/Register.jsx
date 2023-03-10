@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { edadValidator } from "./validators";
 
-const Formulario = () => {
+const Registro = () => {
   const {
     register,
     formState: { errors },
@@ -32,8 +32,10 @@ const Formulario = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label>Nombre</label>
-          <input id="txtpas" style={{ textAlign: "center" }}
-            type="text" 
+          <input
+            id="txtpas"
+            style={{ textAlign: "center" }}
+            type="text"
             {...register("nombre", {
               required: true,
               maxLength: 10,
@@ -48,8 +50,10 @@ const Formulario = () => {
         </div>
         <div>
           <label>Apellidos</label>
-          <input 
-            type="text" id="txtpas" style={{ textAlign: "center" }}
+          <input
+            type="text"
+            id="txtpas"
+            style={{ textAlign: "center" }}
             {...register("Apellidos", {
               required: true,
               maxLength: 20,
@@ -59,7 +63,9 @@ const Formulario = () => {
         <div>
           <label>Nickname</label>
           <input
-            type="text" id="txtpas" style={{ textAlign: "center" }}
+            type="text"
+            id="txtpas"
+            style={{ textAlign: "center" }}
             {...register("Nickname", {
               required: true,
               maxLength: 10,
@@ -69,7 +75,9 @@ const Formulario = () => {
         <div>
           <label>Rut</label>
           <input
-            type="text" id="txtpas" style={{ textAlign: "center" }}
+            type="text"
+            id="txtpas"
+            style={{ textAlign: "center" }}
             {...register("Rut", {
               required: true,
             })}
@@ -78,7 +86,9 @@ const Formulario = () => {
         <div>
           <label>Edad</label>
           <input
-            type="text" id="txtpas" style={{ textAlign: "center" }}
+            type="text"
+            id="txtpas"
+            style={{ textAlign: "center" }}
             {...register("edad", {
               validate: edadValidator,
             })}
@@ -90,7 +100,9 @@ const Formulario = () => {
         <div>
           <label>Dirección</label>
           <input
-            type="text" id="txtpas" style={{ textAlign: "center" }}
+            type="text"
+            id="txtpas"
+            style={{ textAlign: "center" }}
             {...register("Dirección", {
               required: true,
             })}
@@ -99,7 +111,9 @@ const Formulario = () => {
         <div>
           <label>Email</label>
           <input
-            type="text" id="txtpas" style={{ textAlign: "center" }}
+            type="text"
+            id="txtpas"
+            style={{ textAlign: "center" }}
             {...register("email", {
               pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i,
             })}
@@ -116,7 +130,12 @@ const Formulario = () => {
         {Phone && (
           <div>
             <label>Teléfono</label>
-            <input type="text" id="txtpas" style={{ textAlign: "center" }} {...register("telefono")} />
+            <input
+              type="text"
+              id="txtpas"
+              style={{ textAlign: "center" }}
+              {...register("telefono")}
+            />
           </div>
         )}
         <input type="submit" value="Enviar" />
@@ -125,4 +144,4 @@ const Formulario = () => {
   );
 };
 
-export default Formulario;
+export default Registro;
