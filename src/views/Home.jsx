@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import UpCommingEvents from "../components/Upcomming_Events";
+import TopEvents from "../components/Top_Events";
 
 function Home() {
   const [events, setEvents] = useState([]);
@@ -20,32 +21,18 @@ function Home() {
 
   return (
     <div className="container">
-      <h1 className="text-center my-4">Eventos</h1>
+      <h1 className="text-center my-4">Proximos Eventos</h1>
       <div className="row">
         {Array.isArray(events) && events.length > 0 ? (
-          events.map((event) => (
-            <div key={event.id} className="col-lg-4 mb-4">
-              <div className="card h-100">
-                <img
-                  src={event.imagen_evento}
-                  className="card-img-top"
-                  alt={event.nombre_evento}
-                />
-                <div className="card-body">
-                  <h5 className="card-title">{event.nombre_evento}</h5>
-                  <p className="card-text">{event.descripcion}</p>
-                </div>
-                <div className="card-footer">
-                  <NavLink
-                    className="btn btn-primary btn-block"
-                    to={`/event/${event.id}`}
-                  >
-                    Ver detalles
-                  </NavLink>
-                </div>
-              </div>
-            </div>
-          ))
+          <UpCommingEvents events={events} />
+        ) : (
+          <p className="text-center">No hay datos disponibles</p>
+        )}
+      </div>
+      <h1 className="text-center my-4">Eventos Populares</h1>
+      <div className="row">
+        {Array.isArray(events) && events.length > 0 ? (
+          <TopEvents events={events} />
         ) : (
           <p className="text-center">No hay datos disponibles</p>
         )}

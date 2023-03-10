@@ -1,27 +1,19 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-function Upcomming_Events(props) {
+function Top_Events(props) {
   const { events } = props;
 
-  // Get the current date
-  const currentDate = new Date();
+  // Sort the events array by number of likes, in descending order
+  const sortedEvents = events.sort((a, b) => b.likes - a.likes);
 
-  // Filter the events array to only include the events happening in the future
-  const upcomingEvents = events.filter(
-    (event) => new Date(event.fecha) >= currentDate
-  );
+  // Get the first 3 events with the most likes
+  const topThreeEvents = sortedEvents.slice(0, 3);
 
-  // Sort the upcoming events array by date, in ascending order
-  upcomingEvents.sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
-
-  // Get the first 3 upcoming events
-  const firstThreeUpcomingEvents = upcomingEvents.slice(0, 3);
-
-  // Render the upcoming events
+  // Render the top events
   return (
     <div className="row">
-      {firstThreeUpcomingEvents.map((event) => (
+      {topThreeEvents.map((event) => (
         <div className="col-md-4" key={event.id}>
           <div className="card">
             <NavLink to={`/events/${event.id}`}>
@@ -39,6 +31,9 @@ function Upcomming_Events(props) {
               <p className="card-text">
                 <strong>Location:</strong> {event.direccion}
               </p>
+              <p className="card-text">
+                <strong>Likes:</strong> {event.likes}
+              </p>
             </div>
           </div>
         </div>
@@ -47,4 +42,4 @@ function Upcomming_Events(props) {
   );
 }
 
-export default Upcomming_Events;
+export default Top_Events;
