@@ -1,26 +1,31 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 import UpCommingEvents from "../components/Upcomming_Events";
 import TopEvents from "../components/Top_Events";
+import useEventData from "../hooks/useEventData";
 
 function Home() {
-  const [events, setEvents] = useState([]);
-
-  useEffect(() => {
-    jsonData();
-  }, []);
-
-  const jsonData = async () => {
-    try {
-      const response = await fetch("/events.json");
-      const data = await response.json();
-      setEvents(data);
-    } catch (e) {
-      alert("Mensaje del Servidor: No se pudo establecer la conexión");
-    }
-  };
+  // Use custom hook to get event data
+  const events = useEventData();
 
   return (
     <div className="container">
+      <h1 className="text-center my-4">Bienvenido a Evento</h1>
+      <p className="text-center">
+        Evento es una aplicación web que te permite crear eventos y compartirlos
+        con tus amigos.
+      </p>
+      <p className="text-center">
+        También puedes descubrir eventos que se están realizando en tu ciudad.
+      </p>
+      <p className="text-center">
+        ¡Regístrate y comienza a crear y descubrir eventos!
+      </p>
+      <p className="text-center">
+        <Link to="/events" className="btn btn-primary">
+          Ver Eventos
+        </Link>
+      </p>
       <h1 className="text-center my-4">Proximos Eventos</h1>
       <div className="row">
         {Array.isArray(events) && events.length > 0 ? (
