@@ -12,4 +12,32 @@ code {
     monospace;
 }
 
- 
+.event {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.event img {
+  width: 200px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.event-details {
+  flex-grow: 1;
+}
+
+.event-details h2 {
+  font-size: 24px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.event-details p {
+  margin: 0;
+  font-size: 18px;
+}
+
+.event-details p:last-child {
+  margin-top: 10px;
+}
