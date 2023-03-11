@@ -2,33 +2,20 @@ import React from "react";
 
 function PageSizeDropdown({ value, onChange }) {
   return (
-    <div className="dropdown">
-      <button
-        className="btn btn-secondary dropdown-toggle me-2"
-        type="button"
-        id="pageSizeDropdown"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
+    <div className="input-group mb-3">
+      <label htmlFor="page-size-select" className="input-group-text">
+        Mostrar:
+      </label>
+      <select
+        id="page-size-select"
+        value={value}
+        onChange={onChange}
+        className="form-select"
       >
-        Mostrar: {value}
-      </button>
-      <ul className="dropdown-menu" aria-labelledby="pageSizeDropdown">
-        <li>
-          <button className="dropdown-item" onClick={() => onChange(5)}>
-            5
-          </button>
-        </li>
-        <li>
-          <button className="dropdown-item" onClick={() => onChange(10)}>
-            10
-          </button>
-        </li>
-        <li>
-          <button className="dropdown-item" onClick={() => onChange(15)}>
-            15
-          </button>
-        </li>
-      </ul>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+      </select>
     </div>
   );
 }

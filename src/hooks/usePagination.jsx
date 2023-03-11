@@ -18,9 +18,9 @@ function usePagination(items, itemsPerPage) {
     setCurrentPage(page);
   }
 
-  function handlePageSizeChange(event) {
-    const size = parseInt(event.target.value);
-    setPageSize(size);
+  function handlePageSizeChange(event, size) {
+    const newSize = parseInt(size);
+    setPageSize(newSize);
   }
 
   return {

@@ -33,9 +33,6 @@ function Events() {
           <SortDropdown value={sort} onChange={handleSortChange} />
         </div>
         <div className="d-flex align-items-center">
-          <label htmlFor="pageSize" className="me-2">
-            Mostrar:
-          </label>
           <PageSizeDropdown value={pageSize} onChange={handlePageSizeChange} />
         </div>
       </div>

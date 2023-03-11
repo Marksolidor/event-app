@@ -14,9 +14,22 @@ function EventList({ events }) {
               />
             </div>
             <div className="col-md-9">
-              <h2>{event.nombre_evento}</h2>
-              <p>{event.descripcion}</p>
-              <p className="mb-0">{event.likes} Likes</p>
+              <h2 className="text-center mb-3">{event.nombre_evento}</h2>
+              <div className="row">
+                <div className="col-sm-6 mb-3">
+                  <p className="fw-bold mb-0">Fecha: </p>
+                  <p>{event.fecha}</p>
+                  <p className="fw-bold mb-0">Hora: </p>
+                  <p>{event.hora}</p>
+                </div>
+                <div className="col-sm-6 mb-3">
+                  <p className="fw-bold mb-0">Precio: </p>
+                  <p>{event.precio}</p>
+                  <p className="fw-bold mb-0">Comuna: </p>
+                  <p>{event.comuna}</p>
+                </div>
+              </div>
+              <p className="mb-0">Likes: {event.likes}</p>
             </div>
           </div>
         ))
