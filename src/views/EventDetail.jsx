@@ -1,15 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import useEventData from "../hooks/useEventData";
 
 function EventDetail() {
   const { id } = useParams();
+  const [loading, setLoading] = useState(true);
   const events = useEventData();
   const event = events.find((event) => event.id === Number(id));
 
+  // When data is fetched, set loading state to false
+  if (events.length > 0 && loading) {
+    setLoading(false);
+  }
+
   return (
     <div className="container my-5">
-      {event ? (
+      {loading ? (
+        <p className="text-center">Cargando evento...</p>
+      ) : event ? (
         <div className="row">
           <div className="col-md-6">
             <img
