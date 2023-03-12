@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import Registro from "./views/Register";
 import { Login } from "./views/Login";
 import Events from "./views/Events";
+import EventDetail from "./views/EventDetail";
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="/register" element={<Registro />} />
         <Route path="/login" element={<Login />} />
         <Route path="/events" element={<Events />} />
+        <Route path="/events/:id" element={<EventDetail />} />
       </Routes>
       <Footer />
     </BrowserRouter>
