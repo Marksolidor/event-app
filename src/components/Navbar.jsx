@@ -19,17 +19,7 @@ const Navbar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
-          <form className="d-flex ms-auto">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Buscar"
-              aria-label="Search"
-            />
-            <button className="btn btn-outline-success" type="submit">
-              Buscar
-            </button>
-          </form>
+          <form className="d-flex ms-auto"></form>
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
               <NavLink to="/blog" className="nav-link">
@@ -44,7 +34,6 @@ const Navbar = () => {
             <li className="nav-item">
               <NavLink to="/register" className="nav-link">
                 Registrarse
-                
               </NavLink>
             </li>
           </ul>
