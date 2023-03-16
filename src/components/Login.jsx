@@ -1,57 +1,58 @@
-import React, { useState } from 'react'
-import { Menu } from './Menu'
+import React, { useState } from 'react';
+import { login, isAuthenticated, logout } from './Auth';
 
-export const Login = () => {
+const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const [miLogin, setMiLogin] = useState("false");
-  const [usu, setUsu] = useState("");
-  const [pas, setPas] = useState("");
-
-
-  function iniciarSesion(e){
+  const handleLogin = async (e) => {
     e.preventDefault();
-    var txtusu = document.getElementById("txtusu").value;
-    var txtpas = document.getElementById("txtpas").value;
-    if(txtusu.length===0 || txtpas.length===0){
-      alert("Complete Los Datos Faltantes!!");
-    }else{
-      if(usu === "admin" && pas==="123"){
-        setMiLogin("true");
-        document.getElementById("form_login").style.display = "none";
-      }else{
-        setMiLogin("false");
-        alert("Error De Usuario y/o Contraseña!!");
-        document.getElementById("txtusu").value = "";
-        document.getElementById("txtpas").value = "";
-        document.getElementById("txtusu").focus();
-        
-      }
+    try {
+      const data = await login(email, password);
+      console.log(data); // Imprime los datos de inicio de sesión en la consola
+      redirectToHome(); // Redirige al usuario a la página principal
+    } catch (error) {
+      console.error(error);
+      alert('Error de inicio de sesión'); // Muestra un mensaje de error al usuario
     }
-  }
+  };
 
+  const redirectToHome = () => {
+    window.location.href = '/'; // Redirige al usuario a la página principal
+  };
 
   return (
-    
-
-    <div className="container" style={{background:"lightgray", marginTop:20, padding:20}}>
-        
-    <form id="form_login">
+    <div>
+      <h2>Iniciar sesión</h2>
+      <form onSubmit={handleLogin}>
         <div>
-            <h1 style={{color:"blue", textalign:"center"}}>LOGIN</h1>
-            <label htmlFor="txtusu"><strong>Username</strong></label>
-            <input type="text" id="txtusu" style={{textAlign:"center"}} className="form-control"  onChange={ (e)=>setUsu(e.target.value) }  required/>
+          <label htmlFor="email">Correo electrónico</label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </div>
         <div>
-            <label htmlFor="txtpas"><strong>Password</strong></label>
-            <input type="password" id="txtpas" style={{textAlign:"center"}} className="form-control"  onChange={ (e)=>setPas(e.target.value) }  required/>
-        </div><br/>
-        <input type="submit"  className="btn btn-primary" value="Login" onClick={ iniciarSesion }/>
-    </form>
- {/* Evaluación lógica, donde llamo al menu */}
-    { miLogin === "true" && <Menu usu={usu}/> }
+          <label htmlFor="password">Contraseña</label>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <button type="submit">Iniciar sesión</button>
+      </form>
+      {isAuthenticated() && (
+        <div>
+          <p>El usuario ha ingresado correctamente</p>
+          <button onClick={logout}>Cerrar sesión</button>
+        </div>
+      )}
+    </div>
+  );
+};
 
-</div>
-
-
-  )
-}
+export default Login;
