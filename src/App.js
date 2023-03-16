@@ -8,6 +8,7 @@ import Registro from "./views/Register";
 import Login  from "./views/Login";
 import Events from "./views/Events";
 import EventDetail from "./views/EventDetail";
+import "./components/Style/style.css";
 
 export default function App() {
   return (
