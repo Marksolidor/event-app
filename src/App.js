@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import Home from "./views/Home";
 import Footer from "./components/Footer";
 import Registro from "./views/Register";
-import { Login } from "./views/Login";
+import Login  from "./views/Login";
 import Events from "./views/Events";
 import EventDetail from "./views/EventDetail";
 
