@@ -10,14 +10,22 @@ function EventDetail() {
   const event = events.find((event) => event.id === Number(id));
   const [liked, setLiked] = useState(false);
 
- 
-  if (events.length > 0 && loading) {
+if (events.length > 0 && loading) {
     setLoading(false);
   }
 
   const handleLike = () => {
     setLiked(true);
 
+    event.likes += 1;
+  };
+  const CommentSubmit = (comment) => {
+    if (Array.isArray(event.comentarios)) {
+      event.comentarios.push(comment);
+    } else {
+      event.comentarios = [comment]; 
+    }
+  };
   return (
     <div className="container my-5">
       {loading ? (
@@ -51,7 +59,7 @@ function EventDetail() {
             <p>{event.direccion}</p>
             <p className="fw-bold mb-0">Likes: </p>
             <p>
-              <button onClick={handleLike} disabled={liked}>
+             <button onClick={handleLike} disabled={liked}>
                 <i
                   className={`bi bi-heart${liked ? "-fill" : ""}`}
                   style={{ color: liked ? "red" : "inherit" }}
@@ -59,7 +67,19 @@ function EventDetail() {
               </button>{" "}
               {event.likes}
             </p>
-
+            <div className="container my-5">
+              {}
+              <p className="fw-bold mb-0">Comentarios: </p>
+              {Array.isArray(event.comentarios) &&
+               event.comentarios.map((comment) => (
+               <div key={comment.id}>
+                    <p>
+                      {comment.name}: {comment.comment}
+                    </p>
+                  </div>
+                ))}
+              <FormularyComment onCommentSubmit={CommentSubmit} />
+            </div>
           </div>
         </div>
       ) : (
