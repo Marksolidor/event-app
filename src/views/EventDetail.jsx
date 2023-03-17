@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import useEventData from "../hooks/useEventData";
+import FormularyComment from "../components/Comment";
 
 function EventDetail() {
   const { id } = useParams();
@@ -9,16 +10,13 @@ function EventDetail() {
   const event = events.find((event) => event.id === Number(id));
   const [liked, setLiked] = useState(false);
 
-  // When data is fetched, set loading state to false
+ 
   if (events.length > 0 && loading) {
     setLoading(false);
   }
 
   const handleLike = () => {
     setLiked(true);
-    // Update the number of likes in the event object
-    event.likes += 1;
-  };
 
   return (
     <div className="container my-5">
@@ -61,8 +59,7 @@ function EventDetail() {
               </button>{" "}
               {event.likes}
             </p>
-            <p className="fw-bold mb-0">Comentarios: </p>
-            <p>{event.comentarios}</p>
+
           </div>
         </div>
       ) : (
