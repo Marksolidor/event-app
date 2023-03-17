@@ -4,6 +4,15 @@
     -webkit-text-fill-color: transparent;
     font-family: 'UKNumberplate', sans-serif;
 }
+h4{
+    font-family: 'AkzidenzGrotesk-Medium', sans-serif;
+    color: #5b6bbf;
+    margin-bottom: 1rem;
+    margin-left: 30%;
+}
+.container{
+    margin-top: 3rem;
+}
 p {
         font-family: 'AkzidenzGrotesk-Medium', sans-serif;
         color: grey;
@@ -36,4 +45,6 @@ h1{
     margin-right: 0.5em;
     /* espacio entre el icono y el texto */
 }
-
+.box-final{
+    margin-bottom: 5rem;
+}
