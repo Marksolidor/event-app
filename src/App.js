@@ -4,23 +4,32 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./views/Home";
 import Footer from "./components/Footer";
-import Registro from "./views/Register";
-import { Login } from "./views/Login";
+import Register from "./views/Register";
+import Login from "./views/Login";
 import Events from "./views/Events";
 import EventDetail from "./views/EventDetail";
+import Menu from "./views/Menu";
+import "./components/Style/style.css";
 
-export default function App() {
+import { AuthProvider } from "./context/AuthContext";
+
+function App() {
   return (
     <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/register" element={<Registro />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/events" element={<Events />} />
-        <Route path="/events/:id" element={<EventDetail />} />
-      </Routes>
-      <Footer />
+      <AuthProvider>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/events/:id" element={<EventDetail />} />
+        </Routes>
+        <Footer />
+      </AuthProvider>
     </BrowserRouter>
   );
 }
+
+export default App;

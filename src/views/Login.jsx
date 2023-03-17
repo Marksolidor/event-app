@@ -1,40 +1,79 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
-export const Login = () => {
+const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [userId, setUserId] = useState("");
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.get("/users.json");
+      const userData = response.data.find(
+        (user) => user.email === email && user.password === password
+      );
+      if (userData) {
+        // Aquí es donde guardamos el id del usuario en el estado
+        setUserId(userData.id);
+        setErrorMessage("");
+      } else {
+        setErrorMessage("Email o contraseña incorrectos.");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
-    <div
-      className="container"
-      style={{ background: "lightgray", marginTop: 20, padding: 20 }}
-    >
-      <form id="form_login">
-        <div>
-          <h1 style={{ color: "blue", textalign: "center" }}>LOGIN</h1>
-          <label htmlFor="txtusu">
-            <strong>Username</strong>
-          </label>
-          <input
-            type="text"
-            id="txtusu"
-            style={{ textAlign: "center" }}
-            className="form-control"
-            required
-          />
+    <div className="container">
+      <div className="row">
+        <div className="col-md-6 offset-md-3">
+          <h2 className="text-center">Iniciar Sesión</h2>
+          <form onSubmit={handleLogin}>
+            <div className="form-group">
+              <label htmlFor="email">Email:</label>
+              <input
+                type="email"
+                className="form-control"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="password">Contraseña:</label>
+              <input
+                type="password"
+                className="form-control"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
+            {errorMessage && (
+              <div className="alert alert-danger" role="alert">
+                {errorMessage}
+              </div>
+            )}
+            <div className="text-center">
+              <button type="submit" className="btn btn-primary">
+                Ingresar
+              </button>
+              <p>
+                ¿No tienes una cuenta?{" "}
+                <Link to="/register">Regístrate aquí.</Link>
+              </p>
+            </div>
+          </form>
         </div>
-        <div>
-          <label htmlFor="txtpas">
-            <strong>Password</strong>
-          </label>
-          <input
-            type="password"
-            id="txtpas"
-            style={{ textAlign: "center" }}
-            className="form-control"
-            required
-          />
-        </div>
-        <br />
-        <input type="submit" className="btn btn-primary" value="Login" />
-      </form>
+      </div>
     </div>
   );
 };
+
+export default Login;

@@ -18,15 +18,6 @@ function EventDetail() {
   const handleLike = () => {
     setLiked(true);
 
-    event.likes += 1;
-  };
-  const CommentSubmit = (comment) => {
-    if (Array.isArray(event.comentarios)) {
-      event.comentarios.push(comment);
-    } else {
-      event.comentarios = [comment]; 
-    }
-  };
   return (
     <div className="container my-5">
       {loading ? (
@@ -68,19 +59,7 @@ function EventDetail() {
               </button>{" "}
               {event.likes}
             </p>
-            <div className="container my-5">
-              {}
-              <p className="fw-bold mb-0">Comentarios: </p>
-              {Array.isArray(event.comentarios) &&
-               event.comentarios.map((comment) => (
-               <div key={comment.id}>
-                    <p>
-                      {comment.name}: {comment.comment}
-                    </p>
-                  </div>
-                ))}
-              <FormularyComment onCommentSubmit={CommentSubmit} />
-            </div>
+
           </div>
         </div>
       ) : (

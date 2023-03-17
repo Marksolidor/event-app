@@ -1,13 +1,14 @@
 import { NavLink } from "react-router-dom";
+import './styleFooter.css';
 
 const Footer = () => {
   return (
-    <footer className="bg-light text-center text-lg-start">
+    <footer className="footer text-center text-lg-start">
       <div className="container p-4">
         <div className="row">
           <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
             <h5 className="text-uppercase">Acerca de nosotros</h5>
-            <p>
+            <p className="text-light">
               Somos un sitio web que permite a los usuarios publicar y descubrir
               eventos en la ciudad de Santiago de Chile.
             </p>
@@ -18,22 +19,18 @@ const Footer = () => {
 
             <ul className="list-unstyled">
               <li>
-                <NavLink to="/" className="text-dark">
+                <NavLink to="/" className="text-light">
                   Inicio
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/eventos" className="text-dark">
+                <NavLink to="/eventos" className="text-light">
                   Eventos
                 </NavLink>
               </li>
+
               <li>
-                <NavLink to="/blog" className="text-dark">
-                  Blog
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/contacto" className="text-dark">
+                <NavLink to="/contacto" className="text-light">
                   Contacto
                 </NavLink>
               </li>
@@ -45,18 +42,36 @@ const Footer = () => {
 
             <ul className="list-unstyled">
               <li>
-                <a href="#!" className="text-dark">
-                  Facebook
+                <a href="#!" className="text-light">
+                  <img
+            src="https://cdn-icons-png.flaticon.com/512/1177/1177566.png"
+            alt="Facebook"
+            width="30"
+            height="30"
+            className="d-inline-block align-text-top"
+          />
                 </a>
               </li>
               <li>
-                <a href="#!" className="text-dark">
-                  Twitter
+                <a href="#!" className="text-light">
+                  <img
+            src="https://cdn-icons-png.flaticon.com/512/1177/1177491.png"
+            alt="Twitter"
+            width="30"
+            height="30"
+            className="d-inline-block align-text-top"
+          />
                 </a>
               </li>
               <li>
-                <a href="#!" className="text-dark">
-                  Instagram
+                <a href="#!" className="text-light">
+                  <img
+            src="https://cdn-icons-png.flaticon.com/512/1177/1177585.png"
+            alt="Instagram"
+            width="30"
+            height="30"
+            className="d-inline-block align-text-top"
+          />
                 </a>
               </li>
             </ul>
@@ -67,12 +82,12 @@ const Footer = () => {
 
             <ul className="list-unstyled">
               <li>
-                <a href="#!" className="text-dark">
+                <a href="#!" className="text-light">
                   Correo electrónico
                 </a>
               </li>
               <li>
-                <a href="#!" className="text-dark">
+                <a href="#!" className="text-light">
                   Teléfono
                 </a>
               </li>
@@ -81,12 +96,24 @@ const Footer = () => {
         </div>
       </div>
 
-      <div
-        className="text-center p-3"
-        style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
-      >
-        © {new Date().getFullYear()} Mi Sitio Web
-      </div>
+     <div
+  className="text-center text-light p-3"
+  style={{ backgroundColor: "rgba(0, 0, 0, 0.4)", display: "flex", justifyContent: "center", alignItems: "center" }}
+>
+  <div className="">
+    <img
+      src="https://i.pinimg.com/originals/08/2d/a9/082da9086e12588d766fa358135c1232.png"
+      alt="Logo-Footer"
+      width="200"
+      height="60"
+      className="d-inline-block align-text-top"
+    />
+  </div>
+  <div>
+    © {new Date().getFullYear()} Mi Sitio Web
+  </div>         
+</div>
+
     </footer>
   );
 };
