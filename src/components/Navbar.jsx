@@ -37,6 +37,11 @@ const Navbar = () => {
                 Registrarse
               </NavLink>
             </li>
+             <li className="nav-item">
+              <NavLink to="/menu" className="nav-link">
+                Menu
+              </NavLink>
+            </li>
           </ul>
         </div>
       </div>
