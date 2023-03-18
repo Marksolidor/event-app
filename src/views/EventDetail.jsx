@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import useEventData from "../hooks/useEventData";
 import FormularyComment from "../components/Comments";
+import { Link } from "react-router-dom";
 
 function EventDetail() {
   const { id } = useParams();
@@ -52,6 +53,11 @@ function EventDetail() {
             <p>{event.direccion}</p>
             <p className="fw-bold mb-0">Likes: </p>
             <p>
+            <li className="nav-item">
+              <Link to="/Favorites" className="nav-link">
+                Mis Favoritos
+              </Link>
+            </li>
               <button onClick={handleLike} disabled={liked}>
                 <i
                   className={`bi bi-heart${liked ? "-fill" : ""}`}
