@@ -10,7 +10,6 @@ Instalar
 # 'npm react-router-dom'
 # 'npm install @ant-design/icons'
 # 'npm install antd'
-# 'rm -rf node_modules'
 # 'npm start'
 
 
