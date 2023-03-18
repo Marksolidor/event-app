@@ -83,12 +83,35 @@ const Footer = () => {
             <ul className="list-unstyled">
               <li>
                 <a href="#!" className="text-light">
-                  Correo electrónico
+                  <img
+            src="https://cdn-icons-png.flaticon.com/512/3415/3415779.png"
+            alt="Correo Electronico"
+            width="30"
+            height="30"
+            className="d-inline-block align-text-top"
+          />
                 </a>
               </li>
               <li>
                 <a href="#!" className="text-light">
-                  Teléfono
+                  <img
+            src="https://cdn-icons-png.flaticon.com/512/3059/3059590.png"
+            alt="Teléfono"
+            width="30"
+            height="30"
+            className="d-inline-block align-text-top"
+          />
+                </a>
+              </li>
+              <li>
+                <a href="#!" className="text-light">
+                  <img
+            src="https://cdn-icons-png.flaticon.com/512/4100/4100036.png"
+            alt="Whatsapp"
+            width="30"
+            height="30"
+            className="d-inline-block align-text-top"
+          />
                 </a>
               </li>
             </ul>
