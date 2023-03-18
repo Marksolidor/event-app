@@ -1,7 +1,4 @@
 import React, { createContext, useState } from "react";
-import axios from "axios";
-
-const UrlApi = "http://localhost:3000";
 
 const AuthContext = createContext();
 
@@ -9,31 +6,26 @@ function AuthProvider(props) {
   const [user, setUser] = useState(null);
 
   const login = async (email, password) => {
-    try {
-      const response = await axios.post(`${UrlApi}/login`, { email, password });
-      localStorage.setItem("accessToken", response.data.accessToken);
-      const userData = { ...response.data, id: response.data.userId }; // Incluimos el id del usuario en el objeto userData
-      setUser(userData);
-    } catch (error) {
-      console.error(error);
-      throw new Error("Error de inicio de sesión");
+    const response = await fetch("/users.json");
+    const data = await response.json();
+    const foundUser = data.users.find(
+      (user) => user.email === email && user.password === password
+    );
+
+    if (foundUser) {
+      setUser(foundUser);
+      console.log("Usuario guardado:", foundUser);
+    } else {
+      throw new Error("Credenciales inválidas");
     }
   };
 
-  const logout = async () => {
-    try {
-      const response = await axios.post(`${UrlApi}/logout`);
-      localStorage.removeItem("accessToken");
-      setUser(null);
-    } catch (error) {
-      console.error(error);
-      throw new Error("Error de cierre de sesión");
-    }
+  const logout = () => {
+    setUser(null);
   };
 
   const isAuthenticated = () => {
-    const accessToken = localStorage.getItem("accessToken");
-    return accessToken ? true : false;
+    return user ? true : false;
   };
 
   const contextValue = {
