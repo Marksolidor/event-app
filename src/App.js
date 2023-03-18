@@ -10,11 +10,10 @@ import Events from "./views/Events";
 import CrearEvento from "./views/CrearEvento";
 import EventDetail from "./views/EventDetail";
 import Menu from "./views/Menu";
-import ModifyUser from "./views/ModifyUser";
 import "./components/Style/style.css";
-import FavoriteEvents from "./views/Favorites"
-import ModifyUser from "./views/ModifyUser";
-import NotFound from "./NotFound";
+import FavoriteEvents from "./views/Favorites";
+import EditProfile from "./views/ModifyUser";
+import Error404 from "./views/NotFound";
 import { AuthProvider } from "./context/AuthContext";
 
 function App() {
@@ -30,9 +29,9 @@ function App() {
           <Route path="/events" element={<Events />} />
           <Route path="/Favorites" component={FavoriteEvents} />
           <Route path="/menu" element={<Menu />} />
-          <Route path="/profile" element={<ModifyUser />} />
+          <Route path="/profile" element={<EditProfile />} />
           <Route path="/events/:id" element={<EventDetail />} />
-          <Route path="/*" component={NotFound} />
+          <Route path="/*" element={<Error404 />} />
         </Routes>
         <Footer />
       </AuthProvider>

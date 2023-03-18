@@ -6,7 +6,6 @@ import ButtonAddEvent from '../components/ButtonAddEvent';
 import '../components/styleCrearEvento.css';
 
 
-
 const { Option } = Select;
 
 const EventForm = () => {
