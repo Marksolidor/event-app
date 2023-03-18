@@ -10,7 +10,7 @@ import Events from "./views/Events";
 import EventDetail from "./views/EventDetail";
 import Menu from "./views/Menu";
 import "./components/Style/style.css";
-
+import FavoriteEvents from "./views/Favorites"
 import { AuthProvider } from "./context/AuthContext";
 
 function App() {
@@ -23,6 +23,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/events" element={<Events />} />
+            <Route path="/Favorites" component={FavoriteEvents} />
           <Route path="/menu" element={<Menu />} />
           <Route path="/events/:id" element={<EventDetail />} />
         </Routes>
