@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import useEventData from "../hooks/useEventData";
-import FormularyComment from "../components/Comment";
+import FormularyComment from "../components/Comments";
 
 function EventDetail() {
   const { id } = useParams();
