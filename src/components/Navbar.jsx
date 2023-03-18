@@ -23,6 +23,11 @@ const Navbar = () => {
           <form className="d-flex ms-auto"></form>
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
+              <NavLink to="/CrearEvento" className="nav-link">
+                Crear Evento
+              </NavLink>
+            </li>
+            <li className="nav-item">
               <NavLink to="/login" className="nav-link">
                 Iniciar sesión
               </NavLink>
