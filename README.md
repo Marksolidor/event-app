@@ -6,6 +6,14 @@ Integrantes
 
 - Yarenla Stuardo
 
+# 'npm install'
+# 'npm axios'
+# 'npm react-router-dom'
+# 'npm install @ant-design/icons'
+# 'npm install antd'
+# 'rm -rf node_modules'
+# 'npm start'
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
