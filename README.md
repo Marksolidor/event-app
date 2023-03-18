@@ -1,10 +1,9 @@
-Integrantes 
+Para ingresar a Login utilizar
+- ejemplo@gmail.com
+- password: 12345678
 
-- Marco Camargo
 
-- María Paz Labbé
-
-- Yarenla Stuardo
+Instalar
 
 # 'npm install'
 # 'npm axios'
@@ -13,6 +12,15 @@ Integrantes
 # 'npm install antd'
 # 'rm -rf node_modules'
 # 'npm start'
+
+
+Integrantes 
+
+- Marco Camargo
+
+- María Paz Labbé
+
+- Yarenla Stuardo
 
 # Getting Started with Create React App
 
