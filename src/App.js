@@ -9,6 +9,7 @@ import Login from "./views/Login";
 import Events from "./views/Events";
 import EventDetail from "./views/EventDetail";
 import Menu from "./views/Menu";
+import ModifyUser from "./views/ModifyUser";
 import "./components/Style/style.css";
 
 import { AuthProvider } from "./context/AuthContext";
@@ -24,6 +25,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/events" element={<Events />} />
           <Route path="/menu" element={<Menu />} />
+          <Route path="/profile" element={<ModifyUser />} />
           <Route path="/events/:id" element={<EventDetail />} />
         </Routes>
         <Footer />

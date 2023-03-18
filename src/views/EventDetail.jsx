@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import useEventData from "../hooks/useEventData";
-import FormularyComment from "../components/Comment";
 
 function EventDetail() {
   const { id } = useParams();
@@ -10,7 +9,7 @@ function EventDetail() {
   const event = events.find((event) => event.id === Number(id));
   const [liked, setLiked] = useState(false);
 
-if (events.length > 0 && loading) {
+  if (events.length > 0 && loading) {
     setLoading(false);
   }
 
@@ -18,13 +17,6 @@ if (events.length > 0 && loading) {
     setLiked(true);
 
     event.likes += 1;
-  };
-  const CommentSubmit = (comment) => {
-    if (Array.isArray(event.comentarios)) {
-      event.comentarios.push(comment);
-    } else {
-      event.comentarios = [comment]; 
-    }
   };
   return (
     <div className="container my-5">
@@ -59,7 +51,7 @@ if (events.length > 0 && loading) {
             <p>{event.direccion}</p>
             <p className="fw-bold mb-0">Likes: </p>
             <p>
-             <button onClick={handleLike} disabled={liked}>
+              <button onClick={handleLike} disabled={liked}>
                 <i
                   className={`bi bi-heart${liked ? "-fill" : ""}`}
                   style={{ color: liked ? "red" : "inherit" }}
@@ -71,14 +63,9 @@ if (events.length > 0 && loading) {
               {}
               <p className="fw-bold mb-0">Comentarios: </p>
               {Array.isArray(event.comentarios) &&
-               event.comentarios.map((comment) => (
-               <div key={comment.id}>
-                    <p>
-                      {comment.name}: {comment.comment}
-                    </p>
-                  </div>
+                event.comentarios.map((comment) => (
+                  <div key={comment.id}></div>
                 ))}
-              <FormularyComment onCommentSubmit={CommentSubmit} />
             </div>
           </div>
         </div>

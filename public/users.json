@@ -1,11 +1,11 @@
-[
-  {
-    "id": 1,
-    "name": "John",
-    "lastname": "Doe",
-    "nickname": "jdoe",
-    "email": "ejemplo@gmail.com",
-    "rut": "12345678-9",
-    "password": "12345678"
-  }
-]
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Juan",
+      "lastname": "Perez",
+      "email": "juanperez@example.com",
+      "password": "12345678"
+    }
+  ]
+}
