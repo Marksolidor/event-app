@@ -1,0 +1,50 @@
+.bienvenido {
+    background: -webkit-linear-gradient(left, #8155df, #edda32);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'UKNumberplate', sans-serif;
+}
+h4{
+    font-family: 'AkzidenzGrotesk-Medium', sans-serif;
+    color: #5b6bbf;
+    margin-bottom: 1rem;
+    margin-left: 30%;
+}
+.container{
+    margin-top: 3rem;
+}
+p {
+        font-family: 'AkzidenzGrotesk-Medium', sans-serif;
+        color: grey;
+    }
+h1{
+    font-family: 'UKNumberplate', sans-serif;
+    color:#5b6bbf;
+}
+
+.btn-custom {
+    border: 2px solid #5b6bbf;
+    /* borde de color rojo */
+    background-color: #ff0;
+    /* fondo amarillo */
+    font-family: 'UKNumberplate', sans-serif;
+    /* tipografía Arial */
+    background: -webkit-linear-gradient(left, #5b6bbf, #cc77cc);
+    /* texto en negro */
+    color:white;
+}
+
+.btn-custom:hover {
+    background-color: #5b6bbf;
+    /* al pasar el mouse sobre el botón, el fondo se vuelve rojo */
+    color: #5b6bbf;
+    /* el texto se vuelve blanco */
+}
+
+.btn-custom i {
+    margin-right: 0.5em;
+    /* espacio entre el icono y el texto */
+}
+.box-final{
+    margin-bottom: 5rem;
+}

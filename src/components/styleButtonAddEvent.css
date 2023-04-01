@@ -1,0 +1,11 @@
+.btn-custom {
+    border: 2px solid #5b6bbf;
+    /* borde de color rojo */
+    background-color: #ff0;
+    /* fondo amarillo */
+    font-family: 'UKNumberplate', sans-serif;
+    /* tipografía Arial */
+    background: -webkit-linear-gradient(left, #5b6bbf, #cc77cc);
+    /* texto en negro */
+    color: white;
+}
